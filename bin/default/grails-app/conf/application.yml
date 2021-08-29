@@ -8,6 +8,8 @@ grails:
             # Whether to translate GORM events into Reactor events
             # Disabled by default for performance reasons
             events: false
+server:
+    port: 8082
 info:
     app:
         name: '@info.app.name@'
@@ -95,25 +97,28 @@ management:
 hibernate:
     cache:
         queries: false
-        use_second_level_cache: true
-        use_query_cache: true
-        region.factory_class: net.sf.ehcache.hibernate.EhCacheRegionFactory
+        use_second_level_cache: false
+        use_query_cache: false
+        #region.factory_class: net.sf.ehcache.hibernate.EhCacheRegionFactory
+
 dataSource:
     pooled: true
     jmxExport: true
-    driverClassName: com.mysql.jdbc.Driver
+    #driverClassName: com.mysql.jdbc.Driver
     #dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-    dialect: org.hibernate.dialect.MySQL8Dialect
+    #dialect: org.hibernate.dialect.MySQL8Dialect
     username: root
     password: Root@123
 
 environments:
     development:
         dataSource:
-            dbCreate: create-drop" # one of 'create', 'create-drop', 'update', 'validate', ''
+            driverClassName: com.mysql.jdbc.Driver
+            dbCreate: create-drop # one of 'create', 'create-drop', 'update', 'validate', ''
             url: jdbc:mysql://localhost:3306/restaurante?useUnicode=yes&characterEncoding=UTF-8&serverTimezone=GMT-3
-            #username: root
-    #password: Root@123
+            dialect: org.hibernate.dialect.MySQL8Dialect
+            username: root
+            password: Root@123
     test:
         dataSource:
             dbCreate: update

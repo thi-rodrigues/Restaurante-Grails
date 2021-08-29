@@ -4,10 +4,14 @@ class Estoque {
 
     Integer quantidade
     Integer quantidadeMinima
-
-    // Classe produto - OneToOne
+    
     Produto produto
 
     static constraints = {
+    }
+
+    static mapping = {
+       produto column: "produto_id"
+       table name: "Estoque"
     }
 }
