@@ -13,7 +13,7 @@ class ItemPedido {
 
     static constraints = {
         quantidadeMinima min: 0
-        valorVenda min: 0
+        valorVenda min: new Double(0)
         observacao nullable: true, blank: true
     }
 }

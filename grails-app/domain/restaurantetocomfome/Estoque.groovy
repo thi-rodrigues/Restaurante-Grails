@@ -15,6 +15,6 @@ class Estoque {
 
     static mapping = {
        produto column: "produto_id"
-       table name: "Estoque"
+       //table name: "Estoque"
     }
 }
