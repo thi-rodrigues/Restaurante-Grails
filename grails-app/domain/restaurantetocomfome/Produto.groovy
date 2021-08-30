@@ -14,6 +14,8 @@ class Produto {
     static belongsTo = [ Cliente ]
 
     static constraints = {
+        nome nullable: false, blank: false
+        preco min: 0
     }
 
     // alterando propriedades da tabela no banco
